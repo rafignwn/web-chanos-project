@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
 import InfoBoard from "./component/Board/InfoBoard";
-// import Card from "./component/Card/Card";
-import GrafikPh from "./component/grafik/GrafikPh";
 import TitleProject from "./component/Header/TitleProject";
 import { Routes, Route } from "react-router-dom";
+import MonitoringPh from "./component/MonitoringPh/MonitoringPh";
 
 function App() {
   return (
@@ -12,7 +11,7 @@ function App() {
       <TitleProject />
       <Routes>
         <Route path="/" element={<InfoBoard />} />
-        <Route path="/monitoring-ph" element={<GrafikPh />} />
+        <Route path="/monitoring-ph" element={<MonitoringPh />} />
       </Routes>
     </div>
   );

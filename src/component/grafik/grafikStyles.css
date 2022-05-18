@@ -5,8 +5,8 @@
 }
 .wrapper-chart {
     position: relative;
-    width: 100%;
     overflow: auto;
+    width: fit-content;
 }
 #ChartPhRes {
     margin: auto;
@@ -14,11 +14,20 @@
     width: 650px !important;
     aspect-ratio: auto 650 / 400;
 }
+@media (max-width: 650px) {
+    .wrapper-chart {
+        width: 100%;
+    }
+}
 @media (max-width: 480px) {
     #ChartPhRes {
         width: 372px !important;
         min-height: 300px !important;
         height: 300px !important;
         aspect-ratio: auto 372 / 300;
+    }
+    .wrapper-chart {
+        box-shadow: 0 3px 10px rgb(10 10 10 / 50%);
+        transform: translateX(-5px);
     }
 }
