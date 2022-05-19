@@ -19,9 +19,9 @@
     border-radius: 3px;
   }
   .info ul li.link {
-    position: absolute;
+    position: relative;
     white-space: nowrap;
-    bottom: 43px;
+    margin-top: 22px;
   }
   
   .info ul li a {

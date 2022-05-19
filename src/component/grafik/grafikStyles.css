@@ -21,6 +21,7 @@
 }
 @media (max-width: 480px) {
     #ChartPhRes {
+        margin: 0;
         width: 372px !important;
         min-height: 300px !important;
         height: 300px !important;
@@ -28,6 +29,5 @@
     }
     .wrapper-chart {
         box-shadow: 0 3px 10px rgb(10 10 10 / 50%);
-        transform: translateX(-5px);
     }
 }

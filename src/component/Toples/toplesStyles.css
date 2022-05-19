@@ -1,7 +1,6 @@
 .section {
     position: relative;
-    top: 50%;
-    transform: translateY(-70%);
+    transform: translateY(15px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,16 +8,16 @@
 }
 .toples {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background-color: rgba(255, 255, 255, .1);
     border-radius: 50%;
     transform-origin: bottom center;
     border: 8px solid transparent;
-    /* animation-name: rollingAnimate;
-    animation-duration: 6s;
+    animation-name: animateFlay;
+    animation-duration: 4s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite; */
+    animation-iteration-count: infinite;
 }
 #wrapFix {
     position: relative;
@@ -64,7 +63,7 @@
 }
 .liquid span {
     color: #fff;
-    font-size: 40px;
+    font-size: 35px;
     opacity: .7;
     font-weight: 700;
     margin: auto;
@@ -118,6 +117,15 @@
     }
     75% {
         transform: rotate(-15deg);
+    }
+}
+
+@keyframes animateFlay {
+    100%,0% {
+        transform: translateY(4px);
+    }
+    50% {
+        transform: translateY(-12px);
     }
 }
 
