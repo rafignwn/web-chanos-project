@@ -6,6 +6,7 @@ import "./boardStyles.css";
 const data_default = {
   link: {
     title: "Monitoring pH Air",
+    type: "link",
     navigateTo: "monitoring-ph",
   },
   items: ["Nilai pH Saat Ini", "Level pH"],
@@ -21,7 +22,10 @@ export default function InfoBoard() {
       .then((res) => res.json())
       .then((data) => {
         setPhValue(data.nilaiPh);
-        setDataPh({ ...data_default, values: [data.nilaiPh, data.levelPh] });
+        setDataPh({
+          ...data_default,
+          values: [[data.nilaiPh], [data.levelPh]],
+        });
       })
       .catch((err) => console.log(err));
   });
@@ -29,10 +33,11 @@ export default function InfoBoard() {
   const dataPakanIkan = {
     link: {
       title: "Monitoring Pakan",
+      type: "link",
       navigateTo: "monitoring-pakan",
     },
     items: ["Sisa Pakan Ikan", "Penggunaan Pakan Terakhir"],
-    values: ["70%", "1kg"],
+    values: [["70%"], ["1kg"]],
   };
 
   return (

@@ -1,17 +1,6 @@
 .container {
     max-width: 960px;
 }
-.box-monitoring {
-    margin-top: 30px;
-}
-.link-back {
-    text-decoration: none;
-    color: var(--orange);
-    letter-spacing: .7px;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 5px 14px;
-}
 .link-back:hover {
     text-decoration: underline;
 }

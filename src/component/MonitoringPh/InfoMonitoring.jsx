@@ -15,7 +15,12 @@ export default function InfoMonitoring() {
       .then((data) => {
         setDataPh({
           ...items,
-          values: [data.nilaiPh, data.levelPh, data.kondisi, data.jumlah_data],
+          values: [
+            [data.nilaiPh],
+            [data.levelPh],
+            [data.kondisi],
+            [data.jumlah_data],
+          ],
         });
       })
       .catch((err) => console.log(err));
