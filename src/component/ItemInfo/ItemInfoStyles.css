@@ -47,6 +47,7 @@
   color: var(--dark);
   border: 2px solid var(--orange);
   font-weight: 700;
+  cursor: pointer;
   transition: all 300ms ease-out;
 }
 .link a::before,
@@ -63,10 +64,14 @@
   z-index: -1;
 }
 .link a:hover::before,
-.link button:hover::before  {
+.link button:hover::before,
+.link a:active::before  {
   left: 0;
   top: 0;
   border-radius: 0;
+}
+.link button:focus {
+  outline: none;
 }
 
 .info h5 {

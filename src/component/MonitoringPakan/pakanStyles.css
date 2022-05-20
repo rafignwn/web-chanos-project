@@ -53,5 +53,10 @@
     }
     .body-monitoring {
         padding: 20px 0;
+        gap: 0px;
+    }
+    .body-monitoring .info {
+        margin-top: 70px;
+        height: 220px;
     }
 }
