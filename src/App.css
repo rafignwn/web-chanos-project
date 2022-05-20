@@ -10,32 +10,33 @@
   --dark: #082032;
   --semi-dark: #334756;
   --blue-dark: #2c394b;
-  --smoke-white: #d2d2d2;
+  --smoke-white: #d3d3d3;
   --orange: #ff4c29;
 }
 
 body  {
   background-color: var(--dark);
 }
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .mt-30 {
   margin-top: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .container {
   position: relative;
-  margin: auto;
+  margin: 0 auto;
   /* max-width: 1000px; */
   padding: 20px;
 }
 @media (max-width: 480px) {
   .container {
     padding: 20px 10px;
+    padding-bottom: 30px;
   }
 }
