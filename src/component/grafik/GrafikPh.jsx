@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
+import { id } from "date-fns/locale";
 
 ChartJS.register(
   CategoryScale,
@@ -84,7 +85,9 @@ export default function GrafikPh() {
     dataGrafik.datasets[0].data = dataPh.map((dt) => dt.nilaiPh);
     dataGrafik.labels = dataPh.map((dt) => {
       const x = parseISO(dt.waktu_input);
-      return format(x, "eeeeeeeeee, d MMM, yyyy ( hh:mm:ss )");
+      return format(x, "eeeeeeeeee, d MMM, yyyy ( hh:mm:ss )", {
+        locale: id,
+      });
     });
     // eslint-disable-next-line
   }, [dataPh]);
