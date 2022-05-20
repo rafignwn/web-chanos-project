@@ -19,7 +19,7 @@
         width: 100%;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     #ChartPhRes {
         margin: 0;
         width: 372px !important;
@@ -27,7 +27,11 @@
         height: 300px !important;
         aspect-ratio: auto 372 / 300;
     }
+    .chart-ph {
+        margin-top: 13px;
+    }
     .wrapper-chart {
-        box-shadow: 0 3px 10px rgb(10 10 10 / 50%);
+        backdrop-filter: blur(25px);
+        background-color: rgba(255, 255, 255, 0.03);
     }
 }
