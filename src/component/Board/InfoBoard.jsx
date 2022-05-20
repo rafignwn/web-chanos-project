@@ -3,8 +3,16 @@ import ToplesCupang from "../Toples/ToplesCupang";
 import ItemInfo from "../ItemInfo/ItemInfo";
 import "./boardStyles.css";
 
+const data_default = {
+  link: {
+    title: "Monitoring pH Air",
+    navigateTo: "monitoring-ph",
+  },
+  items: ["Nilai pH Saat Ini", "Level pH"],
+};
+
 export default function InfoBoard() {
-  const [dataPh, setDataPh] = useState([]);
+  const [dataPh, setDataPh] = useState(data_default);
   const [pHValue, setPhValue] = useState(0);
   useEffect(() => {
     fetch("https://primus.somee.com/getPrimusSummary", {
@@ -13,42 +21,19 @@ export default function InfoBoard() {
       .then((res) => res.json())
       .then((data) => {
         setPhValue(data.nilaiPh);
-        setDataPh([
-          {
-            title: "Nilai pH Saat Ini",
-            value: data.nilaiPh,
-          },
-          {
-            title: "Level pH",
-            value: data.levelPh,
-          },
-          {
-            link: {
-              title: "Live Monitoring pH Air",
-              navigateTo: "monitoring-ph",
-            },
-          },
-        ]);
+        setDataPh({ ...data_default, values: [data.nilaiPh, data.levelPh] });
       })
       .catch((err) => console.log(err));
   });
 
-  const dataPakanIkan = [
-    {
-      title: "Sisa Pakan Ikan",
-      value: "70%",
+  const dataPakanIkan = {
+    link: {
+      title: "Monitoring Pakan",
+      navigateTo: "monitoring-pakan",
     },
-    {
-      title: "Penggunaan Pakan Terakhir",
-      value: "1kg",
-    },
-    {
-      link: {
-        title: "Monitoring Pakan Ikan",
-        navigateTo: "monitoring-pakan",
-      },
-    },
-  ];
+    items: ["Sisa Pakan Ikan", "Penggunaan Pakan Terakhir"],
+    values: ["70%", "1kg"],
+  };
 
   return (
     <div className="info-board">

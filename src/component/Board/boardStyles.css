@@ -30,17 +30,17 @@
   font-size: 25px;
   color: var(--smoke-white);
   letter-spacing: .7px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .info-body {
   position: relative;
   max-width: 90vw;
   overflow-x: auto;
-  min-height: 220px;
+  min-height: 265px;
   left: 0;
 }
 .wrap-info {
-  width: 480px;
+  width: 500px;
   display: flex;
 /* gap: 30px; */
 }

@@ -7,21 +7,21 @@ export default function ItemInfo({ data, titleInfo }) {
     <div className="info">
       <h5>{titleInfo}</h5>
       <ul>
-        {data.map((item, index) => {
-          if (item.link) {
-            return (
-              <li className="link" key={index}>
-                <Link to={item.link.navigateTo}>{item.link.title}</Link>
-              </li>
-            );
-          }
+        {data.items.map((item, index) => {
           return (
-            <li key={index}>
-              {item.title} <br /> <span>{item.value}</span>
-            </li>
+            typeof item === "string" && (
+              <li key={index}>
+                {item} <br /> {data.values && <span>{data.values[index]}</span>}
+              </li>
+            )
           );
         })}
       </ul>
+      {data.link && (
+        <div className="link">
+          <Link to={data.link.navigateTo}>{data.link.title}</Link>
+        </div>
+      )}
     </div>
   );
 }
