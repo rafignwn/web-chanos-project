@@ -94,4 +94,5 @@ svg circle:nth-child(2) {
     stroke-dasharray: 440px;
     stroke-dashoffset: 440px;
     stroke: var(--orange);
+    transition: stroke-dashoffset 500ms ease-in-out;
 }

@@ -1,5 +1,5 @@
 .container {
-    max-width: 920px;
+    max-width: 1020px !important;
 }
 .info-board {
   margin-top: 90px;
@@ -41,12 +41,24 @@
   left: 0;
 }
 .wrap-info {
-  width: 500px;
+  min-width: 500px;
   display: flex;
-/* gap: 30px; */
+}
+.wrap-info .info {
+  max-width: 300px;
+}
+.wrap-info .info h5 {
+  white-space: nowrap;
+}
+.wrap-info .info ul li {
+  padding-bottom: 3px;
+}
+.wrap-info .info ul li span{
+  margin: 3px 0;
+  margin-right: 3px;
 }
 
-  @media (max-width: 920px) {
+  @media (max-width: 1000px) {
     .info-board {
         flex-direction: column-reverse;
         margin-top: 60px;
@@ -60,7 +72,12 @@
         margin-bottom: 60px;
       }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 622px) {
+    .wrap-info {
+      min-width: 566px;
+    }
+  }
+  @media (max-width: 500px) {
     .item-some-info {
         padding: 15px 0;
         margin-top: 10px;
