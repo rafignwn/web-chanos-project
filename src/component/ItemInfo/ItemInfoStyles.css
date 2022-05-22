@@ -13,7 +13,8 @@
   list-style: none;
 }
 .info ul li {
-  padding: 7px 0;
+  padding-top: 7px;
+  padding-bottom: 5px;
   color: var(--smoke-white);
   opacity: .8;
   font-size: 15px;
@@ -21,7 +22,7 @@
 }
 .info ul li span{
   display: inline-block;
-  background-color: var(--semi-dark);
+  background-color: #b72b2b69;
   padding: 2px 6px;
   border-radius: 3px;
 }

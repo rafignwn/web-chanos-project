@@ -24,7 +24,7 @@
 }
 .monitoring-ph .info ul li { 
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 10px 0;
+    padding-top: 10px;
 }
 .monitoring-ph .info ul li:last-child {
     border: none;
@@ -32,7 +32,7 @@
 
 @media (max-width: 930px) {
     .container {
-        max-width: 720px;
+        max-width: 98% !important
     }
     .monitoring-ph .info ul li {
         white-space: nowrap;

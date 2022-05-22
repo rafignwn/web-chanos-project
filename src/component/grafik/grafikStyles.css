@@ -22,7 +22,7 @@
 .btn-chart button {
     all: unset;
     padding: 3px 7px;
-    background-color: var(--blue-dark);
+    background-color: #00000080;
     border-radius: 5px;
     font-size: 12px;
     letter-spacing: .7px;
@@ -34,9 +34,9 @@
 .btn-chart button.active,
 .btn-chart button:hover,
 .btn-chart button:focus {
-    color: rgb(241, 198, 176);
-    font-weight: 600;
-    background-color: #a86e59;
+    color: rgb(255 255 255);
+    font-weight: 500;
+    background-color: #ff4400e0;
 }
 #ChartPhRes {
     margin: auto;
