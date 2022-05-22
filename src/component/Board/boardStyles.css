@@ -1,5 +1,5 @@
 .container {
-    max-width: 1020px !important;
+    max-width: 1050px !important;
 }
 .info-board {
   margin-top: 90px;
@@ -46,6 +46,8 @@
 }
 .wrap-info .info {
   max-width: 300px;
+  min-width: 270px;
+  padding: 10px 20px;
 }
 .wrap-info .info h5 {
   white-space: nowrap;

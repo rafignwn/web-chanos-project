@@ -30,22 +30,53 @@ ChartJS.register(
   Legend
 );
 
+const DATA_URL_PH_RECORDS = [
+  {
+    url: "https://primus.somee.com/recordPhValueLastDay",
+    isActive: false,
+    value: "hari",
+  },
+  {
+    url: "https://primus.somee.com/recordPhValueLastWeek",
+    isActive: false,
+    value: "minggu",
+  },
+  {
+    url: "https://primus.somee.com/recordPhValueLastMonth",
+    isActive: false,
+    value: "bulan",
+  },
+  {
+    url: "https://primus.somee.com/recordPhValueLastYear",
+    isActive: false,
+    value: "tahun",
+  },
+  {
+    url: "https://primus.somee.com/getPhValue",
+    isActive: true,
+    value: "semua",
+  },
+];
+
 export default function GrafikPh() {
   const [dataPh, setData] = useState([]);
+  const [url, setUrl] = useState("https://primus.somee.com/getPhValue");
+  const [dataButton, setDataButton] = useState(DATA_URL_PH_RECORDS);
+
   useEffect(() => {
+    const fetchDataPh = () => {
+      console.log(url);
+      fetch(url)
+        .then((res) => res.json())
+        .then((hasil) => setData(hasil))
+        .catch((err) => console.log(err));
+    };
     fetchDataPh();
     let intervalPh = setInterval(fetchDataPh, 5000);
     return function () {
       clearInterval(intervalPh);
     };
-  }, []);
-
-  function fetchDataPh() {
-    fetch("https://primus.somee.com/getPhValue")
-      .then((res) => res.json())
-      .then((hasil) => setData(hasil))
-      .catch((err) => console.log(err));
-  }
+  }, [url]);
 
   const dataGrafik = {
     labels: [],
@@ -68,19 +99,20 @@ export default function GrafikPh() {
             0,
             chartArea.bottom
           );
-          gradient.addColorStop(0, "#ff4040");
-          gradient.addColorStop(0.5, "#ff4c29");
+          gradient.addColorStop(0, "#ff404099");
+          gradient.addColorStop(0.5, "#ff4c298f");
           gradient.addColorStop(1, "#f6546a88");
 
           return gradient;
         },
-        borderWidth: 1,
+        borderWidth: 2,
         pointBorderWidth: 0,
         border: false,
         hoverPointBorderWidth: 4,
       },
     ],
   };
+
   useMemo(() => {
     dataGrafik.datasets[0].data = dataPh.map((dt) => dt.nilaiPh);
     dataGrafik.labels = dataPh.map((dt) => {
@@ -98,8 +130,33 @@ export default function GrafikPh() {
     }
   };
 
+  const changeUrlAndAddActive = (paramUrl) => {
+    setUrl(paramUrl);
+    console.log(paramUrl);
+    const dataButtonBaru = DATA_URL_PH_RECORDS.map((item) =>
+      paramUrl === item.url
+        ? { url: item.url, isActive: true, value: item.value }
+        : { url: item.url, isActive: false, value: item.value }
+    );
+    console.log(dataButtonBaru);
+    setDataButton(dataButtonBaru);
+  };
+
   return (
     <div className="wrapper-chart">
+      <div className="btn-chart">
+        {dataButton.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              changeUrlAndAddActive(item.url);
+            }}
+            className={item.isActive ? "active" : ""}
+          >
+            {item.value}
+          </button>
+        ))}
+      </div>
       <div className="chart-ph">
         <Line
           id="ChartPhRes"
@@ -122,6 +179,8 @@ export default function GrafikPh() {
             color: "#d2d2d2",
             scales: {
               y: {
+                max: 14,
+                min: 0,
                 grid: {
                   color: "#2d407d59",
                 },
