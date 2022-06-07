@@ -30,14 +30,12 @@ export default function MonitroingPakan() {
         title: "Beri Pakan Ikan",
         type: "button",
         action: async function (e) {
-          console.log("Sedang memberi pakan ikan");
           e.currentTarget.classList.add("btn-wait");
           e.currentTarget.textContent = "Sedang Memberi Pakan...";
           let intervalPakan = setInterval(async () => {
             const res = await axios.get(
               "https://primus.somee.com/checkTimeToFeed"
             );
-            console.log(res.data);
             if (res.data === 0) {
               const btnPakan =
                 document.querySelector(".btn-wait") ||
@@ -63,10 +61,7 @@ export default function MonitroingPakan() {
               clearInterval(intervalPakan);
             }
           }, 3000);
-          const response = await axios.get(
-            "https://primus.somee.com/feedTheFish"
-          );
-          console.log(response.data);
+          await axios.get("https://primus.somee.com/feedTheFish");
         },
       },
     };
@@ -75,7 +70,6 @@ export default function MonitroingPakan() {
   const [dataPakan, setDataPakan] = useState(dataPakanDefault);
 
   useEffect(() => {
-    console.log("render mon pakan");
     if (fixDataPakan) {
       setDataPakan(fixDataPakan);
     } else {
