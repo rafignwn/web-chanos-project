@@ -77,8 +77,9 @@
   background-color: var(--orange);
 }
 .link button.btn-goal {
-  background-color: #11A797;
-  border-color: #11A797;
+  background-color: #86DB03;
+  border-color: #86DB03;
+  color: #fff;
 }
 .link button:focus {
   outline: none;
