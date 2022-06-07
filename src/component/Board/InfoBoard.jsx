@@ -104,7 +104,7 @@ export default function InfoBoard() {
   return (
     <div className="info-board">
       <div className="item-some-info">
-        <h4 className="info-title">Sedikit Informasi</h4>
+        <h4 className="info-title">Dashboard Informasi</h4>
         <div
           className="info-body"
           ref={bodyInfo}

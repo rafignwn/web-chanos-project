@@ -66,10 +66,19 @@
 }
 .link a:hover::before,
 .link button:hover::before,
-.link a:active::before  {
+.link a:active::before,
+.link button.btn-wait::before,
+.link button.btn-goal::before  {
   left: 0;
   top: 0;
   border-radius: 0;
+}
+.link button.btn-wait {
+  background-color: var(--orange);
+}
+.link button.btn-goal {
+  background-color: #11A797;
+  border-color: #11A797;
 }
 .link button:focus {
   outline: none;
