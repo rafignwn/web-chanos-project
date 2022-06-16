@@ -79,7 +79,7 @@ export default function MonitroingPakan() {
 
         dataPakanDefault.values = [
           ...dataPakanDefault.values,
-          [`${data.beratPakan} kg`, parseTime(data.waktuPakan)],
+          [`${data.beratPakan} gram`, parseTime(data.waktuPakan)],
         ];
         setDataPakan(dataPakanDefault);
       })();
