@@ -25,6 +25,9 @@
   background-color: #b72b2b69;
   padding: 2px 6px;
   border-radius: 3px;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #fff;
 }
 .info ul li span:not(:last-child) {
   margin-right: 5px;
@@ -90,4 +93,21 @@
   color: var(--orange);
   opacity: .8;
   letter-spacing: .7px;
+}
+/* warna level ph */
+.info ul li span.netral {
+  background-color: #00cc9979;
+}
+.info ul li span.asam {
+  background-color: #ffcc0079;
+}
+.info ul li span.basa {
+  background-color: #66009979;
+}
+/* warna kondisi */
+.info ul li span.baik {
+  background-color: #5aa1fc79;
+}
+.info ul li span.kurang {
+  background-color: #66003389;
 }

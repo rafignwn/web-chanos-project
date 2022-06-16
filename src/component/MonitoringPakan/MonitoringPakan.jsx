@@ -44,7 +44,7 @@ export default function MonitroingPakan() {
               const newData = await getDataPakan();
               dataPakanDefault.values = [
                 ["07:00", "13:00", "17:00"],
-                [`${newData.beratPakan} kg`, parseTime(newData.waktuPakan)],
+                [`${newData.beratPakan} gram`, parseTime(newData.waktuPakan)],
               ];
               setFixDataPakan(dataPakanDefault);
               setSisaPakan(newData.sisaPakan);
@@ -79,7 +79,7 @@ export default function MonitroingPakan() {
 
         dataPakanDefault.values = [
           ...dataPakanDefault.values,
-          [`${data.beratPakan} kg`, parseTime(data.waktuPakan)],
+          [`${data.beratPakan} gram`, parseTime(data.waktuPakan)],
         ];
         setDataPakan(dataPakanDefault);
       })();

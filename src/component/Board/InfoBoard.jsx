@@ -52,7 +52,7 @@ export default function InfoBoard() {
           ...data_pakan_default,
           values: [
             [`${data.sisaPakan}%`],
-            [`${data.beratPakan} kg`, waktu_pakan],
+            [`${data.beratPakan} gram`, waktu_pakan],
           ],
         });
       })

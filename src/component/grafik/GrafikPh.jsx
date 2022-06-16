@@ -58,17 +58,21 @@ const DATA_URL_PH_RECORDS = [
   },
 ];
 
-export default function GrafikPh() {
+export default function GrafikPh({ handlerJumlahData }) {
   const [dataPh, setData] = useState([]);
   const [url, setUrl] = useState("https://primus.somee.com/getPhValue");
   const [dataButton, setDataButton] = useState(DATA_URL_PH_RECORDS);
+  const [rangeGrafik, setRangeGrafik] = useState("semua");
 
   useEffect(() => {
     const fetchDataPh = () => {
       console.log(url);
       fetch(url)
         .then((res) => res.json())
-        .then((hasil) => setData(hasil))
+        .then((hasil) => {
+          setData(hasil);
+          handlerJumlahData(hasil.length);
+        })
         .catch((err) => console.log(err));
     };
     fetchDataPh();
@@ -76,6 +80,8 @@ export default function GrafikPh() {
     return function () {
       clearInterval(intervalPh);
     };
+    // warning di dependency handlerJumlahData
+    // eslint-disable-next-line
   }, [url]);
 
   const dataGrafik = {
@@ -125,8 +131,14 @@ export default function GrafikPh() {
   }, [dataPh]);
 
   const getLabel = (item, index) => {
-    if (index <= 2) {
-      return item.length === 4 ? item.slice(0, 3) : item;
+    if (rangeGrafik === "semua" || rangeGrafik === "tahun") {
+      if (index === 2 || index === 3) {
+        return item;
+      }
+    } else {
+      if (index <= 2) {
+        return item.length === 4 ? item.slice(0, 3) : item;
+      }
     }
   };
 
@@ -138,7 +150,6 @@ export default function GrafikPh() {
         ? { url: item.url, isActive: true, value: item.value }
         : { url: item.url, isActive: false, value: item.value }
     );
-    console.log(dataButtonBaru);
     setDataButton(dataButtonBaru);
   };
 
@@ -149,6 +160,7 @@ export default function GrafikPh() {
           <button
             key={index}
             onClick={() => {
+              setRangeGrafik(item.value);
               changeUrlAndAddActive(item.url);
             }}
             className={item.isActive ? "active" : ""}
@@ -207,7 +219,7 @@ export default function GrafikPh() {
                   crossAlign: "near",
                   maxRotation: 0,
                   callback: function (val) {
-                    // Hide every 2nd tick label
+                    // setting label grafik
                     let label = this.getLabelForValue(val).split(" ");
                     label = label.map(getLabel);
                     return label.join(" ");
@@ -218,7 +230,6 @@ export default function GrafikPh() {
             plugins: {
               legend: {
                 position: "top",
-
                 labels: {
                   boxWidth: 15,
                   boxHeight: 15,

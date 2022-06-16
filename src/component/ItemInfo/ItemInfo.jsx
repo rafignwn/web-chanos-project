@@ -14,7 +14,16 @@ export default function ItemInfo({ data, titleInfo }) {
                 {item} <br />
                 {data.values &&
                   data.values[index]?.map((item, index) => (
-                    <span key={index}>{item}</span>
+                    <span
+                      className={
+                        typeof item === "string"
+                          ? item.toLowerCase().split(" ")[0]
+                          : ""
+                      }
+                      key={index}
+                    >
+                      {typeof item === "string" ? item.toLowerCase() : item}
+                    </span>
                   ))}
               </li>
             )
