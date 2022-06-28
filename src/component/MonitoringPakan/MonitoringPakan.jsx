@@ -25,7 +25,7 @@ export default function MonitroingPakan() {
   const dataPakanDefault = useMemo(() => {
     return {
       items: ["Jam Pemberian Pakan Ikan", "Penggunaan Terakhir Pakan Ikan"],
-      values: [["08:00", "16:00"]],
+      values: [["08:00", "16:30"]],
       link: {
         title: "Beri Pakan Ikan",
         type: "button",
@@ -43,7 +43,7 @@ export default function MonitroingPakan() {
               // update data pakan
               const newData = await getDataPakan();
               dataPakanDefault.values = [
-                ["07:00", "13:00", "17:00"],
+                ["08:00", "16:00"],
                 [`${newData.beratPakan} gram`, parseTime(newData.waktuPakan)],
               ];
               setFixDataPakan(dataPakanDefault);
