@@ -24,8 +24,11 @@ export default function MonitroingPakan() {
 
   const dataPakanDefault = useMemo(() => {
     return {
-      items: ["Jam Pemberian Pakan Ikan", "Penggunaan Terakhir Pakan Ikan"],
-      values: [["08:00", "16:30"]],
+      items: [
+        "Jam Pemberian Pakan Ikan",
+        "Penggunaan Terakhir Pakan Ikan",
+        "Rekap Terakhir Data Pakan",
+      ],
       link: {
         title: "Beri Pakan Ikan",
         type: "button",
@@ -43,11 +46,21 @@ export default function MonitroingPakan() {
               // update data pakan
               const newData = await getDataPakan();
               dataPakanDefault.values = [
-                ["08:00", "16:00"],
-                [`${newData.beratPakan} gram`, parseTime(newData.waktuPakan)],
+                ["08:00", "16:30"],
+                [
+                  `${newData.info.beratPakan} gram`,
+                  parseTime(newData.info.waktuPakan),
+                ],
+                [
+                  `Hari Ini: ${(newData.infoRekap.hari / 1000).toFixed(2)} kg`,
+                  `Seminggu: ${(newData.infoRekap.minggu / 1000).toFixed(
+                    2
+                  )} kg`,
+                  `Sebulan: ${(newData.infoRekap.bulan / 1000).toFixed(2)} kg`,
+                ],
               ];
               setFixDataPakan(dataPakanDefault);
-              setSisaPakan(newData.sisaPakan);
+              setSisaPakan(newData.info.sisaPakan);
               // pesan berhasil
               btnPakan.classList.remove("btn-wait");
               btnPakan.classList.add("btn-goal");
@@ -75,11 +88,16 @@ export default function MonitroingPakan() {
     } else {
       (async function () {
         const data = await getDataPakan();
-        setSisaPakan(data.sisaPakan);
+        setSisaPakan(data.info.sisaPakan);
 
         dataPakanDefault.values = [
-          ...dataPakanDefault.values,
-          [`${data.beratPakan} gram`, parseTime(data.waktuPakan)],
+          ["08:00", "16:30"],
+          [`${data.info.beratPakan} gram`, parseTime(data.info.waktuPakan)],
+          [
+            `Hari Ini: ${(data.infoRekap.hari / 1000).toFixed(2)} kg`,
+            `Seminggu: ${(data.infoRekap.minggu / 1000).toFixed(2)} kg`,
+            `Sebulan: ${(data.infoRekap.bulan / 1000).toFixed(2)} kg`,
+          ],
         ];
         setDataPakan(dataPakanDefault);
       })();

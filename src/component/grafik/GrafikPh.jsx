@@ -47,11 +47,6 @@ const DATA_URL_PH_RECORDS = [
     value: "bulan",
   },
   {
-    url: "https://primus.somee.com/recordPhValueLastYear",
-    isActive: false,
-    value: "tahun",
-  },
-  {
     url: "https://primus.somee.com/getPhValue",
     isActive: true,
     value: "semua",

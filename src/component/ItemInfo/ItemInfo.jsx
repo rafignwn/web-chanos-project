@@ -12,7 +12,7 @@ export default function ItemInfo({ data, titleInfo }) {
             typeof item === "string" && (
               <li key={index}>
                 {item} <br />
-                {data.values &&
+                {data.values ? (
                   data.values[index]?.map((item, index) => (
                     <span
                       className={
@@ -24,7 +24,10 @@ export default function ItemInfo({ data, titleInfo }) {
                     >
                       {typeof item === "string" ? item.toLowerCase() : item}
                     </span>
-                  ))}
+                  ))
+                ) : (
+                  <span>Loading...</span>
+                )}
               </li>
             )
           );

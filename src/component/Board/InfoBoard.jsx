@@ -43,7 +43,7 @@ export default function InfoBoard() {
       .then((res) => res.json())
       .then((data) => {
         const waktu_pakan = format(
-          parseISO(data.waktuPakan),
+          parseISO(data.info.waktuPakan),
           "eeeeeee, dd MMM yyyy HH:mm:ss",
           { locale: id }
         );
@@ -51,8 +51,8 @@ export default function InfoBoard() {
         setDataPakan({
           ...data_pakan_default,
           values: [
-            [`${data.sisaPakan}%`],
-            [`${data.beratPakan} gram`, waktu_pakan],
+            [`${data.info.sisaPakan}%`],
+            [`${data.info.beratPakan} gram`, waktu_pakan],
           ],
         });
       })

@@ -28,7 +28,7 @@
 .body-monitoring .info {
     padding: 20px;
     padding-bottom: 0;
-    height: 250px;
+    height: 270px;
 }
 .body-monitoring .info ul li {
     padding-top: 10px;
@@ -57,6 +57,6 @@
     }
     .body-monitoring .info {
         margin-top: 70px;
-        height: 227px;
+        height: 300px;
     }
 }
